@@ -7,8 +7,8 @@ module.exports = {
     social: {
       twitter: `justinwhall`,
     },
-    postPrefix : '/blog',
-    pagePrefix: '',
+    postPrefix: "/blog",
+    pagePrefix: "",
   },
   plugins: [
     {
@@ -26,37 +26,34 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: "gatsby-source-wordpress",
       options: {
         // The base url to your WP site.
-        baseUrl: 'gatsbynetliflydemo.justinwhall.com',
+        baseUrl: "https://bmelwpgatsby.wordpress.com/",
+        // baseUrl: "gatsbynetliflydemo.justinwhall.com",
         // baseUrl: 'data.justinwhall.com',
         // baseUrl: 'wpgatsby.wtf',
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https.
-        protocol: 'https',
+        protocol: "https",
         // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: false,
         auth: {},
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: true,
-        excludedRoutes: [
-          "/*/*/comments",
-          "/yoast/**",
-          "/oembed/*"
-        ],
-        normalizer: function({ entities }) {
+        excludedRoutes: ["/*/*/comments", "/yoast/**", "/oembed/*"],
+        normalizer({ entities }) {
           return entities
         },
-      }
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        // trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
     `gatsby-plugin-offline`,
